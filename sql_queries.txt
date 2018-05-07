@@ -1,0 +1,54 @@
+drop schema `mrs` ;
+CREATE SCHEMA `mrs` ;
+
+DROP TABLE if exists `mrs`.`user`;
+DROP TABLE if exists `mrs`.`user_entity`;
+DROP TABLE if exists `mrs`.`entity`;
+DROP TABLE if exists `mrs`.`attribute`;
+DROP TABLE if exists `mrs`.`user_user`;
+
+
+
+CREATE TABLE `mrs`.`user` (
+  `idUser` bigint NOT NULL AUTO_INCREMENT,
+	`Passw` VARCHAR(100) NOT NULL,
+	`Email` VARCHAR(100) NULL,
+	`Name` VARCHAR(100) NOT NULL,
+	`Surname` VARCHAR(100) NOT NULL,
+ PRIMARY KEY (`idUser`));
+
+
+  CREATE TABLE `mrs`.`entity` (
+  `idEntity` bigint NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Type` VARCHAR(100) NULL,
+  `Class` VARCHAR(100) NULL,
+  PRIMARY KEY (`idEntity`));
+
+
+CREATE TABLE `mrs`.`attribute` (
+  `idAttribute` bigint NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(100) NOT NULL,
+  `Value` VARCHAR(250) NULL,
+  `idEntity` bigint NOT NULL,
+  PRIMARY KEY (`idAttribute`),
+  FOREIGN KEY (`idEntity`) REFERENCES entity(`idEntity`));
+
+
+  CREATE TABLE `mrs`.`user_entity` (
+  `idUserEntity` bigint NOT NULL AUTO_INCREMENT,
+  `idUser` bigint NOT NULL,
+  `idEntity` bigint NOT NULL,
+  PRIMARY KEY (`idUserEntity`),
+  FOREIGN KEY (`idUser`) REFERENCES user(`idUser`),
+  FOREIGN KEY (`idEntity`) REFERENCES entity(`idEntity`));
+
+  CREATE TABLE `mrs`.`user_user` (
+    `idUserUser` bigint NOT NULL AUTO_INCREMENT,
+    `idUser` bigint NOT NULL,
+    `idFriend` bigint NOT NULL,
+    PRIMARY KEY (`idUserUser`),
+    FOREIGN KEY (`idUser`) REFERENCES user(`idUser`),
+    FOREIGN KEY (`idFriend`) REFERENCES user(`idUser`));
+
+
