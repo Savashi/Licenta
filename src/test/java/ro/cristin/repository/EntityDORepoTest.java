@@ -11,6 +11,8 @@ import ro.cristin.Application;
 import ro.cristin.model.EntityDO;
 import ro.cristin.model.UserDO;
 
+import javax.transaction.Transactional;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -24,34 +26,32 @@ public class EntityDORepoTest {
     UserDORepo userRepo;
 
     @Test
+    @Transactional
     public void testCreateEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
         entity1 = entityRepo.save(entity1);
         assertNotNull(entity1.getName());
-        entityRepo.delete(entity1);
-
+        //entityRepo.delete(entity1);
     }
 
     @Test
     public void testDeleteEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
         entity1 = entityRepo.save(entity1);
         entityRepo.delete(entity1);
         assertNull(entityRepo.findOne(entity1.getId()));
-
     }
 
     @Test
+    @Transactional
     public void testUpdateEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
         entity1 = entityRepo.save(entity1);
         entity1.setName("3 billboards outside ebbing missouri");
         entityRepo.save(entity1);
         EntityDO dbEntityDO = entityRepo.findOne(entity1.getId());
         assertEquals(dbEntityDO.getName(),"3 billboards outside ebbing missouri");
-        entityRepo.delete(entity1);
-
-
+        //entityRepo.delete(entity1);
     }
 
 

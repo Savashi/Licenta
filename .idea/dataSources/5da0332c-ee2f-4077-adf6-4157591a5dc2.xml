@@ -978,135 +978,141 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="232" name="Type">
+    <column id="245" parent="232" name="Rating">
       <Position>3</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="232" name="Class">
+    <column id="246" parent="232" name="Type">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="247" parent="232" name="PRIMARY">
+    <column id="247" parent="232" name="Class">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="248" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idEntity</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="248" parent="233" name="idUser">
+    <column id="249" parent="233" name="idUser">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="233" name="Passw">
+    <column id="250" parent="233" name="Passw">
       <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="233" name="Email">
+    <column id="251" parent="233" name="Email">
       <Position>3</Position>
       <DataType>varchar(100)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="233" name="Name">
+    <column id="252" parent="233" name="Name">
       <Position>4</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="233" name="Surname">
+    <column id="253" parent="233" name="Surname">
       <Position>5</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="253" parent="233" name="PRIMARY">
+    <key id="254" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idUser</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="234" name="idUserEntity">
+    <column id="255" parent="234" name="idUserEntity">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="234" name="idUser">
+    <column id="256" parent="234" name="idUser">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="234" name="idEntity">
+    <column id="257" parent="234" name="idEntity">
       <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="257" parent="234" name="idUser">
+    <index id="258" parent="234" name="idUser">
       <ColNames>idUser</ColNames>
     </index>
-    <index id="258" parent="234" name="idEntity">
+    <index id="259" parent="234" name="idEntity">
       <ColNames>idEntity</ColNames>
     </index>
-    <key id="259" parent="234" name="PRIMARY">
+    <key id="260" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idUserEntity</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="260" parent="234" name="user_entity_ibfk_1">
+    <foreign-key id="261" parent="234" name="user_entity_ibfk_1">
       <ColNames>idUser</ColNames>
       <RefSchemaName>mrs</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>idUser</RefColNames>
     </foreign-key>
-    <foreign-key id="261" parent="234" name="user_entity_ibfk_2">
+    <foreign-key id="262" parent="234" name="user_entity_ibfk_2">
       <ColNames>idEntity</ColNames>
       <RefSchemaName>mrs</RefSchemaName>
       <RefTableName>entity</RefTableName>
       <RefColNames>idEntity</RefColNames>
     </foreign-key>
-    <column id="262" parent="235" name="idUserUser">
+    <column id="263" parent="235" name="idUserUser">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="235" name="idUser">
+    <column id="264" parent="235" name="idUser">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="235" name="idFriend">
+    <column id="265" parent="235" name="idFriend">
       <Position>3</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="265" parent="235" name="idUser">
+    <index id="266" parent="235" name="idUser">
       <ColNames>idUser</ColNames>
     </index>
-    <index id="266" parent="235" name="idFriend">
+    <index id="267" parent="235" name="idFriend">
       <ColNames>idFriend</ColNames>
     </index>
-    <key id="267" parent="235" name="PRIMARY">
+    <key id="268" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idUserUser</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="268" parent="235" name="user_user_ibfk_1">
+    <foreign-key id="269" parent="235" name="user_user_ibfk_1">
       <ColNames>idUser</ColNames>
       <RefSchemaName>mrs</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>idUser</RefColNames>
     </foreign-key>
-    <foreign-key id="269" parent="235" name="user_user_ibfk_2">
+    <foreign-key id="270" parent="235" name="user_user_ibfk_2">
       <ColNames>idFriend</ColNames>
       <RefSchemaName>mrs</RefSchemaName>
       <RefTableName>user</RefTableName>

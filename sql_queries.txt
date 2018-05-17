@@ -21,6 +21,7 @@ CREATE TABLE `mrs`.`user` (
   CREATE TABLE `mrs`.`entity` (
   `idEntity` bigint NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(100) NOT NULL,
+  `Rating` bigint NOT NULL,
   `Type` VARCHAR(100) NULL,
   `Class` VARCHAR(100) NULL,
   PRIMARY KEY (`idEntity`));
