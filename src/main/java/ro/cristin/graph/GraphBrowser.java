@@ -1,6 +1,5 @@
-package ro.cristin.graphv2;
+package ro.cristin.graph;
 
-import org.hibernate.EntityMode;
 import ro.cristin.model.EntityDO;
 import ro.cristin.model.Result;
 import ro.cristin.model.UserDO;
@@ -10,11 +9,11 @@ import java.util.List;
 
 public class GraphBrowser {
     private Graph graph;
-    private UserDO userDO;
+    private UserDO currentUser;
 
     public void browseGraph() {
         List<Result> results = new ArrayList<>();
-        final UserNode userNode = graph.getUserMap().get(userDO);
+        final UserNode userNode = graph.getUserMap().get(currentUser);
         for (EntityEdge entityEdge: userNode.getEntityEdgeList()) {
             recursiveAddResults(userNode, entityEdge.getTo(), results);
 

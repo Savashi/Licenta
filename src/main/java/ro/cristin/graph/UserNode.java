@@ -1,8 +1,9 @@
-package ro.cristin.graphv2;
+package ro.cristin.graph;
 
 import ro.cristin.model.EntityDO;
 import ro.cristin.model.UserDO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserNode {
@@ -11,6 +12,8 @@ public class UserNode {
 
     private List<UserEdge> userEdgeList;
     private List<EntityEdge> entityEdgeList;
+
+    private boolean isVisited;
 
     public UserDO getVertex() {
         return vertex;
@@ -21,6 +24,9 @@ public class UserNode {
     }
 
     public List<UserEdge> getUserEdgeList() {
+        if(userEdgeList == null){
+            userEdgeList = new ArrayList<>();
+        }
         return userEdgeList;
     }
 
@@ -29,11 +35,22 @@ public class UserNode {
     }
 
     public List<EntityEdge> getEntityEdgeList() {
+        if(entityEdgeList == null){
+            entityEdgeList = new ArrayList<>();
+        }
         return entityEdgeList;
     }
 
     public void setEntityEdgeList(List<EntityEdge> entityEdgeList) {
         this.entityEdgeList = entityEdgeList;
+    }
+
+    public boolean isVisited() {
+        return isVisited;
+    }
+
+    public void setVisited(boolean visited) {
+        isVisited = visited;
     }
 
     public boolean hasEntity(EntityNode entityNode){
@@ -55,6 +72,19 @@ public class UserNode {
             }
         }
         return maxEntity;
+    }
 
+    public void addEntityEdge(EntityEdge entityEdge){
+        if(entityEdgeList == null){
+            entityEdgeList = new ArrayList<>();
+        }
+        entityEdgeList.add(entityEdge);
+    }
+
+    public void addUserEdge(UserEdge userEdge){
+        if(userEdgeList == null){
+            userEdgeList = new ArrayList<>();
+        }
+        userEdgeList.add(userEdge);
     }
 }

@@ -1,18 +1,15 @@
-package ro.cristin.graphv2;
+package ro.cristin.graph;
 
-import ro.cristin.graph.generic.Node;
 import ro.cristin.model.UserDO;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Graph {
     private Map<UserDO, UserNode> userMap;
-    private Map<UserDO, EntityNode> entityMap;
+    //private Map<UserDO, EntityNode> entityMap;
 
-    public Graph() {
-        userMap = new HashMap<>();
-        entityMap = new HashMap<>();
+    public Graph(Map<UserDO, UserNode> userMap) {
+        this.userMap = userMap;
     }
 
     public Map<UserDO, UserNode> getUserMap() {
@@ -23,11 +20,11 @@ public class Graph {
         this.userMap = userMap;
     }
 
-    public Map<UserDO, EntityNode> getEntityMap() {
+    /*public Map<UserDO, EntityNode> getEntityMap() {
         return entityMap;
     }
 
     public void setEntityMap(Map<UserDO, EntityNode> entityMap) {
         this.entityMap = entityMap;
-    }
+    }*/
 }

@@ -1,9 +1,9 @@
-package ro.cristin.graphv2;
+package ro.cristin.graph;
 
-public class UserEdge {
+public class EntityEdge {
 
     private UserNode from;
-    private UserNode to;
+    private EntityNode to;
 
     public UserNode getFrom() {
         return from;
@@ -13,11 +13,11 @@ public class UserEdge {
         this.from = from;
     }
 
-    public UserNode getTo() {
+    public EntityNode getTo() {
         return to;
     }
 
-    public void setTo(UserNode to) {
+    public void setTo(EntityNode to) {
         this.to = to;
     }
 }

@@ -2,10 +2,8 @@ package ro.cristin.model;
 
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import static javax.persistence.CascadeType.ALL;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -27,24 +25,17 @@ public class UserDO {
     @Column(name = "Passw")
     private String password;
 
-    @JoinTable(name="user_entity",
-            joinColumns = { @JoinColumn(name = "idUser") },
-            inverseJoinColumns = { @JoinColumn(name = "idEntity") })
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<EntityDO> entityList;
+
+
 
     @JoinTable(name="user_user",
             joinColumns = { @JoinColumn(name = "idUser") },
             inverseJoinColumns = { @JoinColumn(name = "idFriend") })
-    @ManyToMany(cascade = {
-        CascadeType.PERSIST,
-                CascadeType.MERGE
+    @ManyToMany(fetch = FetchType.EAGER,cascade = {
+        CascadeType.PERSIST
     })
 
-    private List<UserDO> userList;
+    private Set<UserDO> userList;
 
 
     public UserDO(){
@@ -99,6 +90,16 @@ public class UserDO {
         this.password = password;
     }
 
+
+
+    public Set<UserDO> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(Set<UserDO> userList) {
+        this.userList = userList;
+    }
+
     @Override
     public String toString() {
         return "UserDO{" +
@@ -112,16 +113,9 @@ public class UserDO {
 
     public void addUser(UserDO user){
         if(userList == null){
-            userList = new ArrayList<>();
+            userList = new HashSet<>();
         }
         userList.add(user);
-    }
-
-    public void addEntity(EntityDO entity){
-        if(entityList == null){
-            entityList = new ArrayList<>();
-        }
-        entityList.add(entity);
     }
 
 
