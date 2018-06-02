@@ -22,10 +22,6 @@ public class UserDO {
     @Column(name = "Surname")
     private String surname;
 
-    @Column(name = "Passw")
-    private String password;
-
-
 
 
     @JoinTable(name="user_user",
@@ -43,11 +39,10 @@ public class UserDO {
     }
 
 
-    public UserDO(String email, String name, String surname, String password) {
+    public UserDO(String email, String name, String surname) {
         this.email = email;
         this.name = name;
         this.surname = surname;
-        this.password = password;
     }
 
     public int getId() {
@@ -82,13 +77,7 @@ public class UserDO {
         this.surname = surname;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
 
 
@@ -107,7 +96,6 @@ public class UserDO {
                 ", email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 

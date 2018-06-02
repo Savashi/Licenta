@@ -28,7 +28,7 @@ public class EntityDORepoTest {
     @Test
     @Transactional
     public void testCreateEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         entity1 = entityRepo.save(entity1);
         assertNotNull(entity1.getName());
         //entityRepo.delete(entity1);
@@ -36,7 +36,7 @@ public class EntityDORepoTest {
 
     @Test
     public void testDeleteEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         entity1 = entityRepo.save(entity1);
         entityRepo.delete(entity1);
         assertNull(entityRepo.findOne(entity1.getId()));
@@ -45,7 +45,7 @@ public class EntityDORepoTest {
     @Test
     @Transactional
     public void testUpdateEntityDO() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         entity1 = entityRepo.save(entity1);
         entity1.setName("3 billboards outside ebbing missouri");
         entityRepo.save(entity1);

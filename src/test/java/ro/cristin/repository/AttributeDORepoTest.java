@@ -28,7 +28,7 @@ public class AttributeDORepoTest {
     @Transactional
     public void testCreateAttribute() {
 
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         assertNotNull(entity1.getName());
         AttributeDO attribute1 = new AttributeDO("Regizor", "Steven Spielberg");
         entity1.addAttribute(attribute1);
@@ -40,7 +40,7 @@ public class AttributeDORepoTest {
 
     @Test
     public void testDeleteAttribute() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         assertNotNull(entity1.getName());
         AttributeDO attribute1 = new AttributeDO("Regizor", "Steven Spielberg");
         entity1.addAttribute(attribute1);
@@ -54,7 +54,7 @@ public class AttributeDORepoTest {
     @Test
     @Transactional
     public void testUpdateAttribute() {
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film",7);
+        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         assertNotNull(entity1.getName());
         AttributeDO attribute1 = new AttributeDO("Regizor", "Steven Spielberg");
         entity1.addAttribute(attribute1);

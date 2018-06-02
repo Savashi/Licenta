@@ -28,7 +28,7 @@ public class GraphController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String fff(Model model) {
+    public String home(Model model) {
         return "home";
     }
 

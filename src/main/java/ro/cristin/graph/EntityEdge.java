@@ -4,6 +4,15 @@ public class EntityEdge {
 
     private UserNode from;
     private EntityNode to;
+    private int rating;
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public UserNode getFrom() {
         return from;

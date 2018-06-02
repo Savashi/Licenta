@@ -61,6 +61,7 @@ public class GraphCreator {
                 EntityEdge entityEdge = new EntityEdge();
                 entityEdge.setFrom(userNode);
                 entityEdge.setTo(entityMap.get(entityDO.getId()));
+                entityEdge.setRating(userEntityDO.getRating());
                 userNode.addEntityEdge(entityEdge);
             }
         }

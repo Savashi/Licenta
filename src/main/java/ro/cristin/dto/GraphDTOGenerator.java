@@ -36,7 +36,7 @@ public class GraphDTOGenerator {
                     nodeDTOList.add(new EntityNodeDTO(entityNode.getVertex()));
                     entityNode.setVisited(true);
                 }
-                edgeDTOList.add(new EntityEdgeDTO(userDO,entityNode.getVertex()));
+                edgeDTOList.add(new EntityEdgeDTO(userDO,entityNode.getVertex(),entityEdge.getRating()));
             }
             for(UserEdge userEdge: userNode.getUserEdgeList()){
                 UserDO to = userEdge.getTo().getVertex();

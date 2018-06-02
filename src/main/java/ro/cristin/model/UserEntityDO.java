@@ -6,6 +6,11 @@ import javax.persistence.*;
 @Table(name = "user_entity")
 public class UserEntityDO {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idUserEntity")
+    private int id;
+
     @ManyToOne
     @JoinColumn(name="idUser")
     private UserDO userDO;
@@ -24,6 +29,14 @@ public class UserEntityDO {
         this.userDO = userDO;
         this.entityDO = entityDO;
         this.rating = rating;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public UserDO getUserDO() {

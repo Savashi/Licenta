@@ -4,8 +4,13 @@ public interface EdgeDTO {
 
     String getFrom();
     String getTo();
-    String getColor();
-    String getRating();
+    Color getColor();
+    String getLabel();
+
+    default Font getFont() {
+        return new Font();
+    }
+
 
 
 }

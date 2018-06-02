@@ -20,9 +20,6 @@ public class EntityDO {
     @Column(name = "Name")
     private String name;
 
-    @Column(name = "Rating")
-    private int rating;
-
     @Column(name = "Type")
     private String type;
 
@@ -38,11 +35,10 @@ public class EntityDO {
 
     }
 
-    public EntityDO(String name, String type, String clasa, int rating) {
+    public EntityDO(String name, String type, String clasa) {
         this.name = name;
         this.type = type;
         this.entityclass = clasa;
-        this.rating = rating;
     }
 
     public int getId() {
@@ -69,14 +65,6 @@ public class EntityDO {
         this.type = type;
     }
 
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
     public String getEntityclass() {
         return entityclass;
     }
@@ -98,7 +86,6 @@ public class EntityDO {
         return "EntityDO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", rating=" + rating +
                 ", type='" + type + '\'' +
                 ", entityclass='" + entityclass + '\'' +
                 ", listAttribute=" + listAttribute +

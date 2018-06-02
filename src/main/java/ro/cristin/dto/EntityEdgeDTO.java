@@ -1,5 +1,6 @@
 package ro.cristin.dto;
 
+import org.apache.tomcat.jdbc.pool.interceptor.ResetAbandonedTimer;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import ro.cristin.model.EntityDO;
 import ro.cristin.model.UserDO;
@@ -7,11 +8,13 @@ import ro.cristin.model.UserDO;
 public class EntityEdgeDTO implements EdgeDTO {
     private UserDO fromUser;
     private EntityDO toEntity;
+    private int rating;
     private static final String COLOR = "red";
 
-    public EntityEdgeDTO(UserDO fromUser, EntityDO toEntity){
+    public EntityEdgeDTO(UserDO fromUser, EntityDO toEntity, int rating){
         this.fromUser = fromUser;
         this.toEntity = toEntity;
+        this.rating = rating;
     }
 
     @Override
@@ -25,12 +28,12 @@ public class EntityEdgeDTO implements EdgeDTO {
     }
 
     @Override
-    public String getColor() {
-        return COLOR;
+    public Color getColor() {
+        return new Color(COLOR);
     }
 
     @Override
-    public String getRating() {
-        return toEntity.getRating() + "";
+    public String getLabel() {
+        return rating +"*";
     }
 }

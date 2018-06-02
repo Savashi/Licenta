@@ -66,8 +66,8 @@ public class UserNode {
         int max = 0;
         EntityDO maxEntity = new EntityDO();
         for (EntityEdge entityEdge:entityEdgeList) {
-            if (entityEdge.getTo().getVertex().getRating() > max) {
-                max = entityEdge.getTo().getVertex().getRating();
+            if (entityEdge.getRating() > max) {
+                max = entityEdge.getRating();
                 maxEntity = entityEdge.getTo().getVertex();
             }
         }

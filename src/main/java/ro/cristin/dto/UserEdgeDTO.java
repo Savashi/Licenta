@@ -24,12 +24,12 @@ public class UserEdgeDTO  implements EdgeDTO {
     }
 
     @Override
-    public String getColor() {
-        return COLOR;
+    public Color getColor() {
+        return new Color(COLOR);
     }
 
     @Override
-    public String getRating() {
+    public String getLabel() {
         return "";
     }
 }
