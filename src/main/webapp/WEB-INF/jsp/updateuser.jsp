@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
-<title>Create User</title>
+<title>Update User</title>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,28 +26,31 @@
 <jsp:include page="header.jsp"/>
 
 <div class="container">
-    <h2>Create a new user</h2>
+    <h2>Update a user</h2>
     <form action="/action_page.php">
         <div class="form-group">
             <label for="name">Name:</label>
-            <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+            <input type="name" class="form-control" id="name" placeholder="Enter name" name="name" value="${userDO.name}">
         </div>
         <div class="form-group">
             <label for="surname">Surname:</label>
-            <input type="surname" class="form-control" id="surname" placeholder="Enter surname" name="surname">
+            <input type="surname" class="form-control" id="surname" placeholder="Enter surname" name="surname" value="${userDO.surname}">
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="${userDO.email}">
         </div>
         <div class="form-group">
             <label for="friends">Friends:</label><br/>
             <select id="example-filter-placeholder" class="form-control" name="friends" multiple="multiple">
                 <c:forEach items="${userDOS}" var="user">
-                    <option value="${user.id}¶${user.surname}¶${user.name}¶${user.email}">${user.name}  ${user.surname}</option>
-                    <td>${user.surname}</td>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
+                    <c:set var="selected" value=""/>
+                    <c:forEach items="${userDO.userList}" var="friend">
+                        <c:if test="${user.id == friend.id}">
+                            <c:set var="selected" value="selected"/>
+                        </c:if>
+                    </c:forEach>
+                    <option value="${user.id}¶${user.surname}¶${user.name}¶${user.email}" ${selected}>${user.name}  ${user.surname}</option>
                 </c:forEach>
             </select>
         </div>
@@ -63,12 +66,18 @@
         <div class="form-group">
             <label for="entities">Entities:</label><br/>
             <select id="filter-placeholder" class="form-control" name="entities" multiple="multiple">
-                <c:forEach items="${entityDOS}" var="entity">
-                    <option value="${entity.id}¶${entity.entityclass}¶${entity.name}¶${entity.type}">${entity.name}</option>
+                <c:forEach items="${entityDOS}" var="entityDO">
+                    <c:set var="selected" value=""/>
+                    <c:forEach items="${userEntityDOS}" var="userentity">
+                        <c:if test="${entityDO.id == userentity.entityDO.id}">
+                            <c:set var="selected" value="selected"/>
+                        </c:if>
+                    </c:forEach>
+                    <option value="${entityDO.id}¶${entityDO.entityclass}¶${entityDO.name}¶${entityDO.type}" ${selected}>${entityDO.name}</option>
                 </c:forEach>
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </form>
 </div>
 

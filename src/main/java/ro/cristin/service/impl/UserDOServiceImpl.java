@@ -29,6 +29,12 @@ public class UserDOServiceImpl implements UserDOService {
     @Override
     public void deleteUser(UserDO user) {
         userRepo.delete(user);
-
     }
+
+    @Override
+    public UserDO findById(int id) {
+        return userRepo.findOne(id);
+    }
+
+
 }

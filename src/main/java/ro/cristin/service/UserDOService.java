@@ -9,4 +9,5 @@ public interface UserDOService {
     List<UserDO> getAllUsers();
     void addUser(UserDO user);
     void deleteUser(UserDO user);
+    UserDO findById(int id);
 }
