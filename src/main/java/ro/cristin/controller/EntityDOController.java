@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import ro.cristin.model.EntityDO;
 import ro.cristin.service.EntityDOService;
 
@@ -27,5 +28,14 @@ public class EntityDOController {
         List<EntityDO> entityDOS = entityDOService.getAllEntities();
         model.addAttribute("entityDOS",entityDOS);
         return "showentities";
+    }
+
+    @RequestMapping(value = "/updatentity", method = RequestMethod.GET)
+    public String updateUser(Model model, @RequestParam("id") int id) {
+        EntityDO entityDO = entityDOService.findById(id);
+        model.addAttribute("entityDO",entityDO);
+        List<EntityDO> entityDOS = entityDOService.getAllEntities();
+        model.addAttribute("entityDOS",entityDOS);
+        return "updatentity";
     }
 }

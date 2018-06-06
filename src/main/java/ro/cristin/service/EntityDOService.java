@@ -9,4 +9,5 @@ public interface EntityDOService {
     List<EntityDO> getAllEntities();
     void addEntityDO(EntityDO entityDO);
     void deleteEntityDO(EntityDO entityDO);
+    EntityDO findById(int id);
 }

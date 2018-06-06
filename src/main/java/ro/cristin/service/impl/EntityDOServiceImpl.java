@@ -28,4 +28,9 @@ public class EntityDOServiceImpl implements EntityDOService {
     public void deleteEntityDO(EntityDO entityDO) {
         entityDORepo.delete(entityDO);
     }
+
+    @Override
+    public EntityDO findById(int id) {
+        return entityDORepo.findOne(id);
+    }
 }

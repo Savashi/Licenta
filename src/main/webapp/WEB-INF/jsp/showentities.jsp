@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <style>
+        .no-a {
+            color: white!important;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="header.jsp"/>
@@ -31,7 +37,7 @@
                 <td>${entity.type}</td>
                 <td>
                     <button type="button" class="btn btn-default btn-primary">
-                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                        <span class="glyphicon glyphicon-pencil"></span> <a class="no-a" href="/updatentity?id=${entity.id}">Edit </a>
                     </button>
                 </td>
                 <td>
