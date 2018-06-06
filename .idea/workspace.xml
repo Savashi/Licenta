@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7122fc89-bcdc-4114-82ee-b840fba5900e" name="Default" comment="frontend">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/service/UserEntityDOService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/service/impl/UserEntityDOServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showentities.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showusers.jsp" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/updateuser.jsp" />
+    <list default="true" id="7122fc89-bcdc-4114-82ee-b840fba5900e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/cristin/controller/EntityDOController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/controller/EntityDOController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/cristin/controller/UserDOController.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/controller/UserDOController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/cristin/repository/UserEntityDORepo.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/repository/UserEntityDORepo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/cristin/service/UserDOService.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/service/UserDOService.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ro/cristin/service/impl/UserDOServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ro/cristin/service/impl/UserDOServiceImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/createentity.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/createentity.jsp" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/createuser.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/createuser.jsp" />
       <change beforePath="$PROJECT_DIR$/target/classes/ro/cristin/controller/EntityDOController.class" afterPath="$PROJECT_DIR$/target/classes/ro/cristin/controller/EntityDOController.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/ro/cristin/controller/UserDOController.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/target/classes/ro/cristin/service/UserDOService.class" afterPath="$PROJECT_DIR$/target/classes/ro/cristin/service/UserDOService.class" />
@@ -109,8 +97,8 @@
             <state relative-caret-position="-630">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <element signature="e#13632#13638#0" expanded="true" />
-                <element signature="e#13648#13654#0" expanded="true" />
+                <element signature="e#13807#13813#0" expanded="true" />
+                <element signature="e#13823#13829#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -822,7 +810,7 @@
       <workItem from="1526983580152" duration="2402000" />
       <workItem from="1527159913108" duration="11599000" />
       <workItem from="1527495811574" duration="40943000" />
-      <workItem from="1528114428767" duration="17533000" />
+      <workItem from="1528114428767" duration="17648000" />
     </task>
     <task id="LOCAL-00001" summary="parcurgere graf plus toate corectarile">
       <created>1526563161400</created>
@@ -845,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527972833880</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="frontend ziua 2">
+      <created>1528303610716</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528303610716</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -881,7 +876,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="171710000" />
+    <option name="totallyTimeSpent" value="171825000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -939,7 +934,8 @@
     <MESSAGE value="parcurgere graf plus toate corectarile" />
     <MESSAGE value="parcurgere graf plus toate corectarile&#10;interfata grafica pentru graf" />
     <MESSAGE value="frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend" />
+    <MESSAGE value="frontend ziua 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend ziua 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1416,8 +1412,8 @@
         <state relative-caret-position="-630">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#13632#13638#0" expanded="true" />
-            <element signature="e#13648#13654#0" expanded="true" />
+            <element signature="e#13807#13813#0" expanded="true" />
+            <element signature="e#13823#13829#0" expanded="true" />
           </folding>
         </state>
       </provider>
