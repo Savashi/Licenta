@@ -23,13 +23,10 @@ public class DataGenerator {
     @Autowired
     private UserEntityDORepo userEntityDORepo;
 
-    @Autowired
-    private AttributeDORepo attributeDORepo;
 
 
     @Test
     public void generateData(){
-        attributeDORepo.deleteAll();
         userEntityDORepo.deleteAll();
         userRepo.deleteAll();
         entityRepo.deleteAll();

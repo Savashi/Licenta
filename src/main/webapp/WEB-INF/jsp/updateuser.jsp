@@ -26,7 +26,7 @@
 <jsp:include page="header.jsp"/>
 
 <div class="container">
-    <h2>Update a user</h2>
+    <h2>Update an user</h2>
     <form action="/action_page.php">
         <div class="form-group">
             <label for="name">Name:</label>

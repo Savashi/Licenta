@@ -13,7 +13,7 @@
 <jsp:include page="header.jsp"/>
 
 <div class="container">
-    <h2>Update entity</h2>
+    <h2>Update an entity</h2>
     <form action="/action_page.php">
         <div class="form-group">
             <label for="domain">Domain:</label>

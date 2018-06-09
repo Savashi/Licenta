@@ -26,9 +26,6 @@ public class EntityDO {
     @Column(name = "Class")
     private String entityclass;
 
-    @OneToMany(cascade=ALL)
-    @JoinColumn(name="idEntity", nullable = false)
-    private List<AttributeDO> listAttribute;
 
 
     public EntityDO(){
@@ -73,12 +70,7 @@ public class EntityDO {
         this.entityclass = entityclass;
     }
 
-    public void addAttribute(AttributeDO attribute){
-        if(listAttribute == null){
-            listAttribute = new ArrayList<>();
-        }
-        listAttribute.add(attribute);
-    }
+
 
 
     @Override
@@ -88,7 +80,6 @@ public class EntityDO {
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", entityclass='" + entityclass + '\'' +
-                ", listAttribute=" + listAttribute +
                 '}';
     }
 }
