@@ -10,6 +10,7 @@
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-multiselect.js"></script>
+    <script src="/js/user.js"></script>
     <style>
         .multiselect.dropdown-toggle {
             width: 40%;
@@ -50,7 +51,7 @@
                             <c:set var="selected" value="selected"/>
                         </c:if>
                     </c:forEach>
-                    <option value="${user.id}¶${user.surname}¶${user.name}¶${user.email}" ${selected}>${user.name}  ${user.surname}</option>
+                    <option value="${user.id}--${user.surname}--${user.name}--${user.email}" ${selected}>${user.name}  ${user.surname}</option>
                 </c:forEach>
             </select>
         </div>
@@ -64,16 +65,20 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="entities">Entities:</label><br/>
+            <label for="entities">Entities:</label>
+            <span style="cursor:pointer" class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="right" title="Configure Ratings"></span>
+            <br/>
             <select id="filter-placeholder" class="form-control" name="entities" multiple="multiple">
                 <c:forEach items="${entityDOS}" var="entityDO">
                     <c:set var="selected" value=""/>
+                    <c:set var="rating" value="--"/>
                     <c:forEach items="${userEntityDOS}" var="userentity">
                         <c:if test="${entityDO.id == userentity.entityDO.id}">
                             <c:set var="selected" value="selected"/>
+                            <c:set var="rating" value="--${userentity.rating}"/>
                         </c:if>
                     </c:forEach>
-                    <option value="${entityDO.id}¶${entityDO.entityclass}¶${entityDO.name}¶${entityDO.type}" ${selected}>${entityDO.name}</option>
+                    <option value="${entityDO.id}--${entityDO.entityclass}--${entityDO.name}--${entityDO.type}${rating}" ${selected}>${entityDO.name}</option>
                 </c:forEach>
             </select>
         </div>
@@ -81,20 +86,20 @@
     </form>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#example-filter-placeholder').multiselect({
-            enableFiltering: true,
-            filterPlaceholder: 'Select a friend',
-            enableCaseInsensitiveFiltering: true
-        });
-        $('#filter-placeholder').multiselect({
-            enableFiltering: true,
-            filterPlaceholder: 'Select an entity',
-            enableCaseInsensitiveFiltering: true
-        });
-    });
-</script>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Rate Entities</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

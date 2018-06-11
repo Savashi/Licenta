@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ro.cristin.dto.GraphDTO;
 import ro.cristin.dto.GraphDTOGenerator;
+import ro.cristin.dto.ResultDTO;
 import ro.cristin.graph.Graph;
+import ro.cristin.graph.GraphBrowser;
 import ro.cristin.graph.GraphCreator;
+import ro.cristin.model.UserDO;
 import ro.cristin.model.UserEntityDO;
 import ro.cristin.repository.UserEntityDORepo;
 import ro.cristin.service.GraphService;
@@ -22,9 +25,18 @@ public class GraphServiceImpl implements GraphService{
     public GraphDTO getGraph() {
         List<UserEntityDO> userEntityDOS = userEntityDORepo.findAll();
         GraphCreator graphCreator = new GraphCreator(userEntityDOS);
-        Graph graph = graphCreator.createGraph();
+        Graph graph = graphCreator.createGraph(null);
         GraphDTOGenerator graphDTOGenerator = new GraphDTOGenerator(graph);
         return graphDTOGenerator.generateGraphDTO();
+    }
+
+    @Override
+    public List<ResultDTO> getResults(UserDO currentUser, int threshold) {
+        List<UserEntityDO> userEntityDOS = userEntityDORepo.findAll();
+        GraphCreator graphCreator = new GraphCreator(userEntityDOS);
+        Graph graph = graphCreator.createGraph(currentUser);
+        GraphBrowser graphBrowser = new GraphBrowser(graph,currentUser, threshold);
+        return graphBrowser.getResults();
     }
 
 

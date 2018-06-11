@@ -35,6 +35,7 @@ public class EntityDORepoTest {
     }
 
     @Test
+    @Transactional
     public void testDeleteEntityDO() {
         EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
         entity1 = entityRepo.save(entity1);

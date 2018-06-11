@@ -12,7 +12,6 @@
     <link href="/dist/vis.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         #mynetwork {
-            width: 800px;
             height: 800px;
             border: 1px solid lightgray;
         }
@@ -25,8 +24,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-
-<div id="mynetwork"></div>
+<h2>The Recommender Graph</h2>
+<div id="mynetwork" class="col-sm-6"></div>
+<div id="results" class="col-sm-6">
+    <label id="salut"></label>
+    <div id="ceauo"></div>
+</div>
 
 <script type="text/javascript">
     // create an array with nodes

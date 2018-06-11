@@ -1,17 +1,21 @@
 package ro.cristin.model;
 
 import javax.persistence.Entity;
+import java.util.List;
 
 
 public class Result {
 
     private EntityDO entityDO;
     private UserDO userDO;
-    private String entitiesWatched;
+    private EntityDO entityCovered;
+    private int rating;
 
-    public Result(EntityDO entityDO, UserDO userDO) {
+    public Result(EntityDO entityDO, UserDO userDO, EntityDO entityCovered, int rating) {
         this.entityDO = entityDO;
         this.userDO = userDO;
+        this.entityCovered = entityCovered;
+        this.rating = rating;
     }
 
     public Result(){
@@ -34,12 +38,20 @@ public class Result {
         this.userDO = userDO;
     }
 
-    public String getEntitiesWatched() {
-        return entitiesWatched;
+    public EntityDO getEntityCovered() {
+        return entityCovered;
     }
 
-    public void setEntitiesWatched(String entitiesWatched) {
-        this.entitiesWatched = entitiesWatched;
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setEntityCovered(EntityDO entityCovered) {
+        this.entityCovered = entityCovered;
     }
 
     @Override

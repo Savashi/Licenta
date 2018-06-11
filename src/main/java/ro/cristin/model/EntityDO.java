@@ -3,6 +3,7 @@ package ro.cristin.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static javax.persistence.CascadeType.ALL;
 
@@ -70,8 +71,22 @@ public class EntityDO {
         this.entityclass = entityclass;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EntityDO entityDO = (EntityDO) o;
+        return id == entityDO.id &&
+                Objects.equals(name, entityDO.name) &&
+                Objects.equals(type, entityDO.type) &&
+                Objects.equals(entityclass, entityDO.entityclass);
+    }
 
+    @Override
+    public int hashCode() {
 
+        return Objects.hash(id, name, type, entityclass);
+    }
 
     @Override
     public String toString() {

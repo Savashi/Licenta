@@ -62,16 +62,19 @@ public class UserNode {
         return false;
     }
 
-    public EntityDO getMaxEntity(){
+    public List<Object[]> getMaxEntity(int threshold, List<EntityEdge> currentEdges){
         int max = 0;
+        List<Object[]> results = new ArrayList<>();
         EntityDO maxEntity = new EntityDO();
         for (EntityEdge entityEdge:entityEdgeList) {
-            if (entityEdge.getRating() > max) {
+            if (entityEdge.getRating() >= threshold && !isContained(currentEdges,entityEdge)) {
                 max = entityEdge.getRating();
                 maxEntity = entityEdge.getTo().getVertex();
+                Object[] result = {maxEntity, max};
+                results.add(result);
             }
         }
-        return maxEntity;
+        return results;
     }
 
     public void addEntityEdge(EntityEdge entityEdge){
@@ -86,5 +89,14 @@ public class UserNode {
             userEdgeList = new ArrayList<>();
         }
         userEdgeList.add(userEdge);
+    }
+
+    private boolean isContained(List<EntityEdge> entities, EntityEdge entity) {
+        for (EntityEdge entityEdge: entities) {
+            if (entityEdge.getTo().equals(entity.getTo())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

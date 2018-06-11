@@ -10,5 +10,6 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<marquee>FUCK IT</marquee>
 </body>
 </html>

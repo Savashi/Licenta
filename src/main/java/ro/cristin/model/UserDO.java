@@ -1,8 +1,11 @@
 package ro.cristin.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -30,7 +33,7 @@ public class UserDO {
     @ManyToMany(fetch = FetchType.EAGER,cascade = {
         CascadeType.PERSIST
     })
-
+    @JsonIgnore
     private Set<UserDO> userList;
 
 
@@ -87,6 +90,23 @@ public class UserDO {
 
     public void setUserList(Set<UserDO> userList) {
         this.userList = userList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDO userDO = (UserDO) o;
+        return id == userDO.id &&
+                Objects.equals(email, userDO.email) &&
+                Objects.equals(name, userDO.name) &&
+                Objects.equals(surname, userDO.surname) &&
+                Objects.equals(userList, userDO.userList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, name, surname);
     }
 
     @Override
