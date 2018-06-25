@@ -76,6 +76,7 @@ public class GraphBrowser {
 
     }
 
+
     private ResultDTO currentResultUser(List<ResultDTO> results, UserDO userDO){
         for (ResultDTO result: results) {
             if(userDO.getId() == result.getUserDO().getId()){
