@@ -25,18 +25,22 @@
 <body>
 <jsp:include page="header.jsp"/>
 <h2>The Recommender Graph</h2>
-<div id="mynetwork" class="col-sm-6"></div>
+<div class="form-group  col-sm-8">
+        <label for="domain">Domain:</label>
+        <select class="form-control" id="domain" name="domain">
+            <option>Movie</option>
+            <option>Music</option>
+            <option>Book</option>
+            <option>Game</option>
+        </select>
+    <button type="button" class="btn btn-success" onclick="loadGraph()">Generate Graph</button>
+</div>
+
+<div id="mynetwork" class="col-sm-6" style="display:none"></div>
 <div id="results" class="col-sm-6">
     <label id="salut"></label>
     <div id="ceauo"></div>
 </div>
-
-<script type="text/javascript">
-    // create an array with nodes
-    var result = loadGraph();
-
-</script>
-
 
 </body>
 </html>

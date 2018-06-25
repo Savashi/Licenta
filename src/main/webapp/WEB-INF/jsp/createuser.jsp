@@ -28,7 +28,7 @@
 
 <div class="container">
     <h2>Create a new user</h2>
-    <form action="/action_page.php">
+    <form action="/createnewuser" method="POST" id="form">
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
@@ -45,7 +45,7 @@
             <label for="friends">Friends:</label><br/>
             <select id="example-filter-placeholder" class="form-control" name="friends" multiple="multiple">
                 <c:forEach items="${userDOS}" var="user">
-                    <option value="${user.id}¶${user.surname}¶${user.name}¶${user.email}">${user.name}  ${user.surname}</option>
+                    <option value="${user.id}--${user.surname}--${user.name}--${user.email}">${user.name}  ${user.surname}</option>
                     <td>${user.surname}</td>
                     <td>${user.name}</td>
                     <td>${user.email}</td>
@@ -58,7 +58,7 @@
                 <option>Movie</option>
                 <option>Music</option>
                 <option>Book</option>
-                <option>Gaming</option>
+                <option>Game</option>
             </select>
         </div>
         <div class="form-group">
@@ -67,11 +67,12 @@
             <br/>
             <select id="filter-placeholder" class="form-control" name="entities" multiple="multiple">
                 <c:forEach items="${entityDOS}" var="entity">
-                    <option value="${entity.id}--${entity.entityclass}--${entity.name}--${entity.type}"-->${entity.name}</option>
+                    <option value="${entity.id}--${entity.entityclass}--${entity.name}--${entity.type}--">${entity.name}</option>
                 </c:forEach>
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <input type="hidden" name="entityratings" id="ratings"/>
+        <button type="button" class="btn btn-success" onclick="submitme()">Submit</button>
     </form>
 </div>
 

@@ -4,6 +4,7 @@ import ro.cristin.dto.ResultDTO;
 import ro.cristin.model.EntityDO;
 import ro.cristin.model.Result;
 import ro.cristin.model.UserDO;
+import ro.cristin.model.UserEntityDO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +17,10 @@ public class GraphBrowser {
     private UserDO currentUser;
     private List<EntityEdge> currentEdges;
 
-    public GraphBrowser(Graph graph, UserDO currentUser, int threshold) {
+    public GraphBrowser(Graph graph, UserDO currentUser) {
         this.graph = graph;
         this.currentUser = currentUser;
-        this.threshold = threshold;
+        this.threshold = calculateThreshold(currentUser);
     }
 
     public List<ResultDTO> getResults(){
@@ -64,7 +65,8 @@ public class GraphBrowser {
                         final EntityDO maxEntityDO = (EntityDO) entityData[0];
                         final int rating = (Integer) entityData[1];
                         if (rating > 0) {
-                            final Result result = new Result(maxEntityDO, friend.getVertex(),entityNode.getVertex(), rating);
+                            final Result result = new Result(maxEntityDO, friend.getVertex(),
+                                                                entityNode.getVertex(), rating);
                             results.add(result);
                         }
                     }
@@ -92,6 +94,20 @@ public class GraphBrowser {
         }
         return (int) Math.ceil(sum / count);
     }
+
+
+    private int calculateThreshold(UserDO currentUser){
+        final UserNode userNode = graph.getUserMap().get(currentUser);
+        currentEdges = userNode.getEntityEdgeList();
+        double sum =0;
+        int count = 0;
+        for (EntityEdge entityEdge: userNode.getEntityEdgeList()) {
+            sum += entityEdge.getRating();
+            count += 1;
+        }
+        return (int) Math.ceil(sum/count);
+    }
+
 
 
 

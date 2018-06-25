@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/entity.js"></script>
     <style>
         .no-a {
             color: white!important;
@@ -31,7 +32,7 @@
         </thead>
         <tbody>
         <c:forEach items="${entityDOS}" var="entity">
-            <tr>
+            <tr id="${entity.id}">
                 <td>${entity.entityclass}</td>
                 <td>${entity.name}</td>
                 <td>${entity.type}</td>
@@ -41,7 +42,7 @@
                     </button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-default btn-danger">
+                    <button onclick="deleteElement(${entity.id})" type="button" class="btn btn-default btn-danger">
                         <span class="glyphicon glyphicon-trash"></span> Delete
                     </button>
                 </td>

@@ -24,13 +24,10 @@ public class GraphController {
     @Autowired
     private UserDOService userDOService;
 
-    @Value("${ro.cristin.threshold}")
-    private int threshold;
-
-    @RequestMapping(value = "/getGraph", method = RequestMethod.GET)
+    @RequestMapping(value = "/getGraph", method = RequestMethod.POST)
     @ResponseBody
-    public GraphDTO generateGraph() {
-        return graphService.getGraph();
+    public GraphDTO generateGraph(@RequestParam("domain") String domain) {
+        return graphService.getGraph(domain);
     }
 
     @RequestMapping(value = "/graph", method = RequestMethod.GET)
@@ -45,9 +42,10 @@ public class GraphController {
 
     @RequestMapping(value = "/getresultlist", method = RequestMethod.POST)
     @ResponseBody
-    public List<ResultDTO> generateResults(@RequestParam("id") int id) {
+    public List<ResultDTO> generateResults(@RequestParam("id") int id,
+                                           @RequestParam("domain") String domain) {
         UserDO userDO = userDOService.findById(id);
-        return graphService.getResults(userDO, threshold);
+        return graphService.getResults(userDO,domain);
     }
 
 

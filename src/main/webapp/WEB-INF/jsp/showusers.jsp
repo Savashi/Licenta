@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/user.js"></script>
     <style>
         .no-a {
             color: white!important;
@@ -32,7 +33,7 @@
         </thead>
         <tbody>
         <c:forEach items="${userDOS}" var="user">
-            <tr>
+            <tr id="${user.id}">
                 <td>${user.surname}</td>
                 <td>${user.name}</td>
                 <td>${user.email}</td>
@@ -42,7 +43,7 @@
                     </button>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-default btn-danger">
+                    <button  onclick="deleteUser(${user.id})" type="button" class="btn btn-default btn-danger">
                         <span class="glyphicon glyphicon-trash"></span> Delete
                     </button>
                 </td>

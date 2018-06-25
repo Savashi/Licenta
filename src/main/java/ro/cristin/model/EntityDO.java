@@ -33,7 +33,7 @@ public class EntityDO {
 
     }
 
-    public EntityDO(String name, String type, String clasa) {
+    public EntityDO(String clasa, String name, String type) {
         this.name = name;
         this.type = type;
         this.entityclass = clasa;

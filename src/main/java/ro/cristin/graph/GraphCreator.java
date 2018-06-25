@@ -16,8 +16,8 @@ public class GraphCreator {
         this.userEntities = userEntities;
     }
 
-    public Graph createGraph(UserDO currentUser) {
-        createUserEntityNodes(currentUser);
+    public Graph createGraph(UserDO currentUser,String domain) {
+        createUserEntityNodes(currentUser,domain);
         for (int id : userMap.keySet()) {
             UserNode userNode = userMap.get(id);
             createEdges(userNode);
@@ -35,7 +35,7 @@ public class GraphCreator {
         return new Graph(userMapGraph);
     }
 
-    private void createUserEntityNodes(UserDO currentUser) {
+    private void createUserEntityNodes(UserDO currentUser, String domain) {
         Map<Integer, UserNode> temp = new LinkedHashMap<>();
         for (UserEntityDO userEntity : userEntities) {
             UserDO user = userEntity.getUserDO();
@@ -46,9 +46,11 @@ public class GraphCreator {
             }
             userMap.put(user.getId(), u);
             EntityDO entityDO = userEntity.getEntityDO();
-            EntityNode e = new EntityNode();
-            e.setVertex(entityDO);
-            entityMap.put(entityDO.getId(), e);
+            if (entityDO.getEntityclass().equals(domain)){
+                EntityNode e = new EntityNode();
+                e.setVertex(entityDO);
+                entityMap.put(entityDO.getId(), e);
+            }
         }
         if (currentUser != null) {
             for (int id: userMap.keySet()) {
@@ -67,11 +69,13 @@ public class GraphCreator {
             List<UserEntityDO> userEntityDOS = getFilteredList(vertex.getId());
             for (UserEntityDO userEntityDO : userEntityDOS){
                 EntityDO entityDO = userEntityDO.getEntityDO();
-                EntityEdge entityEdge = new EntityEdge();
-                entityEdge.setFrom(userNode);
-                entityEdge.setTo(entityMap.get(entityDO.getId()));
-                entityEdge.setRating(userEntityDO.getRating());
-                userNode.addEntityEdge(entityEdge);
+                if (entityMap.get(entityDO.getId()) != null) {
+                    EntityEdge entityEdge = new EntityEdge();
+                    entityEdge.setFrom(userNode);
+                    entityEdge.setTo(entityMap.get(entityDO.getId()));
+                    entityEdge.setRating(userEntityDO.getRating());
+                    userNode.addEntityEdge(entityEdge);
+                }
             }
         }
         for (UserDO userDO : vertex.getUserList()) {

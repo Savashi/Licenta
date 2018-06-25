@@ -28,7 +28,8 @@
 
 <div class="container">
     <h2>Update an user</h2>
-    <form action="/action_page.php">
+    <form action="/modifyuser" method="post" id="form">
+        <input type="hidden" value="${userDO.id}" name="id"/>
         <div class="form-group">
             <label for="name">Name:</label>
             <input type="name" class="form-control" id="name" placeholder="Enter name" name="name" value="${userDO.name}">
@@ -61,7 +62,7 @@
                 <option>Movie</option>
                 <option>Music</option>
                 <option>Book</option>
-                <option>Gaming</option>
+                <option>Game</option>
             </select>
         </div>
         <div class="form-group">
@@ -82,7 +83,8 @@
                 </c:forEach>
             </select>
         </div>
-        <button type="submit" class="btn btn-success">Update</button>
+        <input type="hidden" name="entityratings" id="ratings"/>
+        <button type="button" class="btn btn-success" onclick="submitme()">Update</button>
     </form>
 </div>
 

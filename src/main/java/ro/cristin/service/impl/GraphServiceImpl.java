@@ -22,20 +22,20 @@ public class GraphServiceImpl implements GraphService{
     private UserEntityDORepo userEntityDORepo;
 
     @Override
-    public GraphDTO getGraph() {
+    public GraphDTO getGraph(String domain) {
         List<UserEntityDO> userEntityDOS = userEntityDORepo.findAll();
         GraphCreator graphCreator = new GraphCreator(userEntityDOS);
-        Graph graph = graphCreator.createGraph(null);
+        Graph graph = graphCreator.createGraph(null,domain);
         GraphDTOGenerator graphDTOGenerator = new GraphDTOGenerator(graph);
         return graphDTOGenerator.generateGraphDTO();
     }
 
     @Override
-    public List<ResultDTO> getResults(UserDO currentUser, int threshold) {
+    public List<ResultDTO> getResults(UserDO currentUser,String domain) {
         List<UserEntityDO> userEntityDOS = userEntityDORepo.findAll();
         GraphCreator graphCreator = new GraphCreator(userEntityDOS);
-        Graph graph = graphCreator.createGraph(currentUser);
-        GraphBrowser graphBrowser = new GraphBrowser(graph,currentUser, threshold);
+        Graph graph = graphCreator.createGraph(currentUser,domain);
+        GraphBrowser graphBrowser = new GraphBrowser(graph,currentUser);
         return graphBrowser.getResults();
     }
 

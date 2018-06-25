@@ -32,11 +32,11 @@ public class DataGenerator {
         entityRepo.deleteAll();
         UserDO cristin = new UserDO("sava.cristin@yahoo.ro", "Sava","Cristin");
         cristin = userRepo.save(cristin);
-        EntityDO entity1 = new EntityDO("Titanic", "Drama","Film");
+        EntityDO entity1 = new EntityDO("Movie", "Titanic","Drama");
         entity1 = entityRepo.save(entity1);
-        EntityDO entity2 = new EntityDO("Super 8", "Mystery","Film");
+        EntityDO entity2 = new EntityDO("Movie", "Super 8","Mystery");
         entity2 = entityRepo.save(entity2);
-        EntityDO entity3 = new EntityDO("Mowgli", "Adventure","Film");
+        EntityDO entity3 = new EntityDO("Movie", "Mowgli","Adventure");
         entity3 = entityRepo.save(entity3);
         UserEntityDO userEntityDO1 = new UserEntityDO(cristin,entity1,9);
         userEntityDORepo.save(userEntityDO1);
@@ -48,11 +48,11 @@ public class DataGenerator {
 
         UserDO sneaky = new UserDO("salajan.alex@yahoo.ro", "Salajan","Alex");
         sneaky = userRepo.save(sneaky);
-        EntityDO entity4 = new EntityDO("Everybody Knows", "Drama","Film");
+        EntityDO entity4 = new EntityDO("Movie", "Everybody Knows","Drama");
         entity4 = entityRepo.save(entity4);
-        EntityDO entity5 = new EntityDO("Disobedience", "Drama","Film");
+        EntityDO entity5 = new EntityDO("Movie", "Disobedience","Drama");
         entity5 = entityRepo.save(entity5);
-        EntityDO entity6 = new EntityDO("Blue Valentine", "Romance","Film");
+        EntityDO entity6 = new EntityDO("Movie", "Blue Valentine","Romance");
         entity6 = entityRepo.save(entity6);
         UserEntityDO userEntityDO4 = new UserEntityDO(sneaky,entity4,10);
         userEntityDORepo.save(userEntityDO4);
@@ -66,13 +66,14 @@ public class DataGenerator {
         userEntityDORepo.save(userEntityDO8);
 
 
+
         UserDO pirpi = new UserDO("pirpidel.sebastian@yahoo.ro", "Pirpidel","Sebastian");
         pirpi = userRepo.save(pirpi);
-        EntityDO entity7 = new EntityDO("Locke", "Drama","Film");
+        EntityDO entity7 = new EntityDO("Movie", "Locke","Drama");
         entity7 = entityRepo.save(entity7);
-        EntityDO entity8 = new EntityDO("American Pie", "Comedy","Film");
+        EntityDO entity8 = new EntityDO("Movie", "American Pie","Comedy");
         entity8 = entityRepo.save(entity8);
-        EntityDO entity9 = new EntityDO("Shame", "Drama","Film");
+        EntityDO entity9 = new EntityDO("Movie", "Shame","Drama");
         entity9 = entityRepo.save(entity9);
         UserEntityDO userEntityDO9 = new UserEntityDO(pirpi,entity7,8);
         userEntityDORepo.save(userEntityDO9);
@@ -85,14 +86,13 @@ public class DataGenerator {
 
 
 
-
         UserDO lupoaie = new UserDO("lupoaie.robert@yahoo.ro", "Lupoaie","Robert");
         lupoaie = userRepo.save(lupoaie);
-        EntityDO entity10 = new EntityDO("Jumanji", "Comedy","Film");
+        EntityDO entity10 = new EntityDO("Movie", "Jumanji","Comedy");
         entity10 = entityRepo.save(entity10);
-        EntityDO entity11 = new EntityDO("The Post", "Drama","Film");
+        EntityDO entity11 = new EntityDO("Movie", "The Post","Drama");
         entity11 = entityRepo.save(entity11);
-        EntityDO entity12 = new EntityDO("Hard Candy", "Thriller","Film");
+        EntityDO entity12 = new EntityDO("Movie", "Hard Candy","Thriller");
         entity12 = entityRepo.save(entity12);
         UserEntityDO userEntityDO13 = new UserEntityDO(lupoaie,entity10,8);
         userEntityDORepo.save(userEntityDO13);
@@ -104,6 +104,8 @@ public class DataGenerator {
         userEntityDORepo.save(userEntityDO16);
         UserEntityDO userEntityDO17 = new UserEntityDO(lupoaie,entity2,2);
         userEntityDORepo.save(userEntityDO17);
+
+
 
         sneaky.addUser(pirpi);
         sneaky.addUser(lupoaie);

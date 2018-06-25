@@ -32,7 +32,7 @@ public class GraphServiceImplTest {
     public void getGraph() {
         List<UserEntityDO> userEntityDOS = new ArrayList<>();
         GraphCreator graphCreator = new GraphCreator(userEntityDOS);
-        Graph graph = graphCreator.createGraph(null);
+        Graph graph = graphCreator.createGraph(null,"Movie");
         GraphDTOGenerator graphDTOGenerator = new GraphDTOGenerator(graph);
         assertNotNull(graphDTOGenerator);
     }

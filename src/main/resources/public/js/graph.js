@@ -1,10 +1,12 @@
+var network = null;
 function loadGraph() {
     $.ajax({
-        type: "GET",
+        type: "post",
         contentType: "application/json",
-        url: "/getGraph",
+        url: "/getGraph?domain=" + $("#domain option:selected").val(),
         async: false,
         success: function (result) {
+            $("#mynetwork").show();
             console.log(result);
             var nodes = new vis.DataSet(
                 result.nodeDTOList
@@ -25,7 +27,10 @@ function loadGraph() {
                 nodes: {borderWidth: 2},
                 interaction: {hover: true}
             }
-            var network = new vis.Network(container, data, options);
+            if (network!=null){
+                network.destroy();
+            }
+            network = new vis.Network(container, data, options);
 
             network.on("click", function (params) {
                 var userid = params.nodes[0];
@@ -35,7 +40,7 @@ function loadGraph() {
                     $.ajax({
                         type: "POST",
                         contentType: "application/json",
-                        url: "/getresultlist?id=" + userid,
+                        url: "/getresultlist?id=" + userid + "&domain=" + $("#domain option:selected").val(),
                         async: false,
                         success: function (result) {
                             console.log(result);

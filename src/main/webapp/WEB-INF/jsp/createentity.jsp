@@ -14,14 +14,14 @@
 
 <div class="container">
     <h2>Create a new entity</h2>
-    <form action="/action_page.php">
+    <form action="/createnewentity" method="post">
         <div class="form-group">
             <label for="domain">Domain:</label>
             <select class="form-control" id="domain" name="class">
                 <option>Movie</option>
                 <option>Music</option>
                 <option>Book</option>
-                <option>Gaming</option>
+                <option>Game</option>
             </select>
         </div>
         <div class="form-group">
